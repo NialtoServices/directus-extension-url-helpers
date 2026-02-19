@@ -1,7 +1,7 @@
 {
-  "name": "@nialtoservices/directus-extension-url-helpers",
-  "description": "A Directus interface extension to automate Permalink and Slug generation based on other fields.",
-  "version": "1.0.0",
+  "name": "@nialto-services/directus-extension-url-helpers",
+  "description": "Generate permalinks and slugs from other fields using templates.",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "icon": "link_2",
   "keywords": [
@@ -13,6 +13,10 @@
     "slug",
     "url"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NialtoServices/directus-extension-url-helpers"
+  },
   "author": {
     "name": "Nialto Services",
     "email": "support@nialtoservices.co.uk",
