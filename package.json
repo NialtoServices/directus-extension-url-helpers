@@ -1,8 +1,8 @@
 {
   "name": "@nialto-services/directus-extension-url-helpers",
   "description": "Generate permalinks and slugs from other fields using templates.",
-  "version": "1.0.1",
-  "license": "Apache-2.0",
+  "version": "1.0.2",
+  "license": "GPL-3.0-or-later",
   "icon": "link_2",
   "keywords": [
     "directus",

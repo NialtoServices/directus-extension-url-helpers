@@ -52,6 +52,6 @@ For example, a source template of `{{title}}` with a title of "My First Post" pr
 npm install @nialto-services/directus-extension-url-helpers
 ```
 
-## License
+## Attribution
 
-Apache-2.0
+This extension was originally based on [directus-extension-wpslug-interface](https://github.com/dimitrov-adrian/directus-extension-wpslug-interface) by dimitrov-adrian, licensed under GPL-3.0.
