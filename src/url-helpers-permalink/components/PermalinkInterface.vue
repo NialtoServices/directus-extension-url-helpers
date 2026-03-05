@@ -85,6 +85,10 @@ export default defineComponent({
     value: {
       type: String,
       default: null
+    },
+    customReplacements: {
+      type: Array as PropType<{ source: string; target: string }[]>,
+      default: () => []
     }
   },
   emits: ['input'],
@@ -100,9 +104,10 @@ export default defineComponent({
     })
 
     function transformValue(value: string) {
+      const customReplacements = props.customReplacements.map((replacement): [string, string] => [replacement.source, replacement.target])
       const result = value
         .split('/')
-        .map((segment) => slugify(segment, { separator: '-', preserveTrailingDash: true }))
+        .map((segment) => slugify(segment, { separator: '-', preserveTrailingDash: true, customReplacements }))
         .join('/')
         .replace(/\/+/g, '/')
 

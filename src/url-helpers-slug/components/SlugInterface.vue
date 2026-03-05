@@ -95,6 +95,10 @@ export default defineComponent({
     value: {
       type: String,
       default: null
+    },
+    customReplacements: {
+      type: Array as PropType<{ source: string; target: string }[]>,
+      default: () => []
     }
   },
   emits: ['input'],
@@ -110,7 +114,8 @@ export default defineComponent({
     })
 
     function transformValue(value: string) {
-      return slugify(value, { separator: '-', preserveTrailingDash: true }).slice(0, props.length)
+      const customReplacements = props.customReplacements.map((replacement): [string, string] => [replacement.source, replacement.target])
+      return slugify(value, { separator: '-', preserveTrailingDash: true, customReplacements }).slice(0, props.length)
     }
 
     function resolverWithDefaults(name: string, scope?: Record<string, any>) {

@@ -64,6 +64,45 @@ export default defineInterface({
         }
       },
       {
+        field: 'customReplacements',
+        type: 'json',
+        name: 'Custom Replacements',
+        meta: {
+          interface: 'list',
+          width: 'full',
+          options: {
+            fields: [
+              {
+                field: 'source',
+                type: 'string',
+                name: 'Source',
+                meta: {
+                  interface: 'input',
+                  width: 'half',
+                  required: true,
+                  options: {
+                    placeholder: 'iPhone'
+                  }
+                }
+              },
+              {
+                field: 'target',
+                type: 'string',
+                name: 'Target',
+                meta: {
+                  interface: 'input',
+                  width: 'half',
+                  required: true,
+                  options: {
+                    placeholder: 'iphone'
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
         field: 'autoGenerate',
         type: 'json',
         name: '$t:auto_generate',

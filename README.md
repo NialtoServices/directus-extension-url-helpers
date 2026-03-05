@@ -20,6 +20,7 @@ For example, a source template of `{{year}}/{{title}}` with a title of "My First
 | Prefix | Template prepended to the value in the preview (e.g. `https://example.com/blog/`). |
 | Suffix | Template appended to the value in the preview (e.g. `/`). |
 | Icon Left | Icon displayed before the preview. |
+| Custom Replacements | A list of custom replacements (source/target pairs) applied before slugification. Useful for words like "iPhone" → "iphone" that would otherwise be split into "i-phone". |
 | Auto Generate | When to auto-generate: on create, on update, or both. Defaults to on create. |
 
 ### Slug
@@ -36,6 +37,7 @@ For example, a source template of `{{title}}` with a title of "My First Post" pr
 | Prefix | Template prepended to the value when editing (e.g. `/blog/`). |
 | Suffix | Template appended to the value when editing (e.g. `/`). |
 | Icon Left | Icon displayed before the preview. |
+| Custom Replacements | A list of custom replacements (source/target pairs) applied before slugification. Useful for words like "iPhone" → "iphone" that would otherwise be split into "i-phone". |
 | Auto Generate | When to auto-generate: on create, on update, or both. Defaults to on create. |
 
 ## Features
