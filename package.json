@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@directus/extensions-sdk": "17.0.5",
+    "@sindresorhus/slugify": "^3.0.0",
     "micromustache": "^8.0.3",
     "prettier": "^3.8.1",
     "stylelint": "^17.0.0",
@@ -67,8 +68,5 @@
     "typescript": "^5.9.3",
     "vue": "^3.5.27",
     "vue-i18n": "^11.2.8"
-  },
-  "dependencies": {
-    "@sindresorhus/slugify": "^3.0.0"
   }
 }
