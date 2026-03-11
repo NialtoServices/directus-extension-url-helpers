@@ -229,7 +229,7 @@ export default defineComponent({
   padding: var(--theme--form--field--input--padding);
   border: var(--theme--border-width) solid var(--v-input-border-color, var(--theme--form--field--input--border-color));
   border-radius: var(--v-input-border-radius, var(--theme--border-radius));
-  block-size: var(--theme--form--field--input--height);
+  min-block-size: var(--theme--form--field--input--height);
   inline-size: 100%;
 }
 
