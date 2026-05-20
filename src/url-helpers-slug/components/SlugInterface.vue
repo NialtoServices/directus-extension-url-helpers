@@ -142,23 +142,35 @@ export default defineComponent({
       return true
     })
 
-    watch(values, (values) => {
-      // Only auto-generate when the value is unmodified.
-      if (isDirty.value || isEditing.value) return
+    let hasInitialized = false
 
-      // Only auto-generate when the field's settings allow it.
-      const action = props.primaryKey === '+' ? 'create' : 'update'
-      if (!props.autoGenerate.includes(action)) return
+    // Watching `sourceSlug` (rather than `values`) ensures we only react when the source-derived
+    // slug actually changes. Collaborative edits to unrelated fields no longer fire this watcher,
+    // which previously could wipe a populated slug via a stale or partial values payload.
+    watch(
+      sourceSlug,
+      (newSourceSlug) => {
+        if (isEditing.value) return
 
-      // Ignore changes from the slug field itself by comparing with the value from `props`.
-      // This works because Vue defers updates to props, but the watch callback runs immediately.
-      if (values[props.field] && values[props.field] !== props.value) return
+        const action = props.primaryKey === '+' ? 'create' : 'update'
+        if (!props.autoGenerate.includes(action)) return
 
-      // Only emit an update when the source produces a different slug.
-      if (sourceSlug.value === props.value) return
+        // `isDirty` is component-local and resets on mount, so a slug manually edited in a prior
+        // session looks "clean" to a fresh editor. Seed it from the stored value vs. source.
+        if (!hasInitialized) {
+          hasInitialized = true
+          if (props.value && isSourceSlugDifferent.value) {
+            isDirty.value = true
+          }
+        }
 
-      emit('input', sourceSlug.value)
-    })
+        if (isDirty.value) return
+        if (newSourceSlug === props.value) return
+
+        emit('input', newSourceSlug)
+      },
+      { immediate: true }
+    )
 
     function beginEditing() {
       checkpoint.value = props.value
